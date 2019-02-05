@@ -1,13 +1,8 @@
 package com.percival.bethany.wildlifeappusingmvvm.data
 
-class KingdomRepository private constructor(private val kingdomDao: FakeKingdomDao) {
+class KingdomRepository private constructor(private val _kingdomDao: FakeKingdomDao) {
 
-    //This method would usually update and check the backend
-    fun addKingdom(kingdom: Kingdom) {
-        kingdomDao.addKingdom(kingdom)
-    }
-
-    fun getKingdoms() = kingdomDao.getKingdoms()
+    fun getKingdoms() = _kingdomDao.getKingdoms()
 
     companion object {
         @Volatile

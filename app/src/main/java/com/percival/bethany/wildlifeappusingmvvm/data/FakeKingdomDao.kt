@@ -4,17 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 class FakeKingdomDao {
-    private val kingdomList = mutableListOf<Kingdom>()
-    private val kingdoms = MutableLiveData<List<Kingdom>>()
+    private val _kingdomList = mutableListOf<Kingdom>()
+    private val _kingdoms = MutableLiveData<List<Kingdom>>()
 
     init {
-        kingdoms.value = kingdomList
+        _kingdoms.value = _kingdomList
     }
 
-    fun addKingdom(kingdom: Kingdom) {
-        kingdomList.add(kingdom)
-        kingdoms.value = kingdomList
-    }
-
-    fun getKingdoms() = kingdoms as LiveData<List<Kingdom>>
+    fun getKingdoms() = _kingdoms as LiveData<List<Kingdom>>
 }
